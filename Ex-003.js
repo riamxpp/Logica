@@ -1,17 +1,18 @@
 function twoSum(array, index) {
   let count1 = 0;
-  let count2 = 1;
+  let repetetion = 0;
   for (let i = 0; i < array.length; i++) {
-    if (array[count1] + array[count2] === index) {
-      return [array[count1], array[count2]];
+    for (let i = 0; i < array.length; i++) {
+      if (repetetion !== i && array[repetetion] + array[i] === index) {
+        return [repetetion, i];
+      }
     }
+    repetetion++;
     count1++;
-    count2++;
   }
-  return false;
 }
 
-console.log(twoSum([1, 3, 5, 6, 7, 19], 8));
+console.log(twoSum([3, 2, 3], 6));
 
 /**
  * Given an array of integers nums and an integer target, return indices of the two numbers such that they

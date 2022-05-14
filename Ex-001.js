@@ -2,7 +2,7 @@ function checkIntersection(array) {
   let nums1 = array[0].split(", ");
   let nums2 = array[1].split(", ");
   let intersectionNumbers = [];
-  nums1.forEach((item, index) => {
+  nums1.forEach((item) => {
     nums2.forEach((number) => {
       if (number === item) {
         intersectionNumbers.push(+number);
