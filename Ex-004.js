@@ -19,6 +19,7 @@ function romanToInt(roman) {
   let cases = [];
   let total = 0;
   let romanNumbers = "";
+  let noPossibilities = false;
   //verificando se um usuário está passando no mínimo um número romano!
   if (
     roman.includes("I") ||
@@ -39,16 +40,21 @@ function romanToInt(roman) {
       }
     });
 
-    if (cases.length !== 0) cases.map((item) => (total += numRomans[item]));
+    if (cases.length !== 0) {
+      cases.map((item) => (total += numRomans[item]));
+      if (!romanNumbers) return total;
+    }
 
     if (romanNumbers) {
       for (let i = 0; i < romanNumbers.length; i++) {
         total += numRomans[romanNumbers[i]];
       }
+      console.log("1: ", total);
     } else {
       for (let i = 0; i < roman.length; i++) {
         total += numRomans[roman[i]];
       }
+      console.log("2: ", total);
     }
 
     return total;
@@ -56,7 +62,7 @@ function romanToInt(roman) {
   return "Informe um número romano valido!";
 }
 
-console.log(romanToInt("viii"));
+console.log(romanToInt("iv"));
 
 // I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000;
 /**
