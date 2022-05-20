@@ -5,7 +5,7 @@ function mergeTwoLists(list1, list2) {
   list1.forEach((item) => {
     for (let i = 0; i < list2.length; i++) {
       if (item === list2[i]) {
-        listWithSameNumber.push(item);
+        listWithSameNumber.push(item, list2[i]);
       }
     }
   });
@@ -17,10 +17,11 @@ function mergeTwoLists(list1, list2) {
   });
   const organizedArray = newList1.concat(newList2, listWithSameNumber);
   organizedArray.sort((a, b) => a - b);
+  console.log(organizedArray);
   return organizedArray;
 }
 
-console.log(mergeTwoLists([1, 3, 3, 5], [1, 2, 3, 4]));
+console.log(mergeTwoLists([1, 2, 4], [1, 3, 4]));
 
 /**
  * You are given the heads of two sorted linked lists list1 and list2.
